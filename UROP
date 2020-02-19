@@ -1,0 +1,56 @@
+name: Blank snippet (1)
+description: Create a new snippet from a blank template.
+host: EXCEL
+api_set: {}
+script:
+  content: |
+    $("#run").click(() => tryCatch(run));
+
+    async function run() {
+      await Excel.run(async (context) => {
+        const sheet = context.workbook.worksheets.getActiveWorksheet();
+
+        console.log("Your code goes here");
+
+        await context.sync();
+      });
+    }
+
+    /** Default helper for invoking an action and handling errors. */
+    async function tryCatch(callback) {
+      try {
+        await callback();
+      } catch (error) {
+        // Note: In a production add-in, you'd want to notify the user through your add-in's UI.
+        console.error(error);
+      }
+    }
+  language: typescript
+template:
+  content: "<button id=\"run\" class=\"ms-Button\">\n    <span class=\"ms-Button-label\">Run</span>\n</button>\n<div>\n\t<a href=\"https://plot.ly/~lliu190/55/?share_key=mh5ABY06g9QoqBh2GZcSJv\" target=\"_blank\"\n\t\ttitle=\"Las Vegas Surface Plot 3\"\n\t\tstyle=\"display: block; text-align: center;\"><img src=\"https://plot.ly/~lliu190/55.png?share_key=mh5ABY06g9QoqBh2GZcSJv\" alt=\"Las Vegas Surface Plot 3\" style=\"max-width: 100%;width: 600px;\"  width=\"600\" onerror=\"this.onerror=null;this.src='https://plot.ly/404.png';\" /></a>\n\t\t<script data-plotly=\"lliu190:55\" sharekey-plotly=\"mh5ABY06g9QoqBh2GZcSJv\" src=\"https://plot.ly/embed.js\" async>\n\t\t</script>\n</div>\n<div>\n\t<a href=\"https://plot.ly/~lliu190/52/?share_key=xybcNnSe1Gwzl7dIdvGdpZ\" target=\"_blank\"\n\t\ttitle=\"Lancaster Surface Graph 3\"\n\t\tstyle=\"display: block; text-align: center;\"><img src=\"https://plot.ly/~lliu190/52.png?share_key=xybcNnSe1Gwzl7dIdvGdpZ\" alt=\"Lancaster Surface Graph 3\" style=\"max-width: 100%;width: 600px;\"  width=\"600\" onerror=\"this.onerror=null;this.src='https://plot.ly/404.png';\" /></a>\n\t\t<script data-plotly=\"lliu190:52\" sharekey-plotly=\"xybcNnSe1Gwzl7dIdvGdpZ\" src=\"https://plot.ly/embed.js\" async>\n\t\t</script>\n</div>\n<div>\n\t<a href=\"https://plot.ly/~lliu190/42/?share_key=xybcNnSe1Gwzl7dIdvGdpZ\" target=\"_blank\"\n\t\ttitle=\"Kansas City Surface graph\"\n\t\tstyle=\"display: block; text-align: center;\"><img src=\"https://plot.ly/~lliu190/42.png?share_key=xybcNnSe1Gwzl7dIdvGdpZ\" alt=\"Kansas City Surface graph\" style=\"max-width: 100%;width: 600px;\"  width=\"600\" onerror=\"this.onerror=null;this.src='https://plot.ly/404.png';\" /></a>\n\t\t<script data-plotly=\"lliu190:42\" sharekey-plotly=\"xybcNnSe1Gwzl7dIdvGdpZ\" src=\"https://plot.ly/embed.js\" async>\n\t\t</script>\n</div>\n<div>\n\t<a href=\"https://plot.ly/~lliu190/5/?share_key=xybcNnSe1Gwzl7dIdvGdpZ\" target=\"_blank\" title=\"Modesto Surface Graph\"\n\t\tstyle=\"display: block; text-align: center;\"><img src=\"https://plot.ly/~lliu190/5.png?share_key=xybcNnSe1Gwzl7dIdvGdpZ\" alt=\"Modesto Surface Graph\" style=\"max-width: 100%;width: 600px;\"  width=\"600\" onerror=\"this.onerror=null;this.src='https://plot.ly/404.png';\" /></a>\n\t\t<script data-plotly=\"lliu190:5\" sharekey-plotly=\"xybcNnSe1Gwzl7dIdvGdpZ\" src=\"https://plot.ly/embed.js\" async>\n\t\t</script>\n</div>\n<script id=\"infogram_0_9c84fae9-29fc-4e9c-9dad-40ecb976d9f7\" title=\"Line Chart\"\n\tsrc=\"https://e.infogram.com/js/dist/embed.js?D8C\" type=\"text/javascript\"></script>\n<div\n\tstyle=\"padding:8px 0;font-family:Arial!important;font-size:13px!important;line-height:15px!important;text-align:center;border-top:1px solid #dadada;margin:0 30px\">\n\t<a href=\"https://infogram.com/9c84fae9-29fc-4e9c-9dad-40ecb976d9f7\"\n\t\tstyle=\"color:#989898!important;text-decoration:none!important;\" target=\"_blank\">Line Chart</a><br><a\n\t\thref=\"https://infogram.com\" style=\"color:#989898!important;text-decoration:none!important;\" target=\"_blank\"\n\t\trel=\"nofollow\">Infogram</a></div>\n<script id=\"infogram_0_f5bc18c4-6acb-42f0-ae0d-4b8836728a71\" title=\"Copy: Line Chart\"\n\tsrc=\"https://e.infogram.com/js/dist/embed.js?XfI\" type=\"text/javascript\"></script>\n<div\n\tstyle=\"padding:8px 0;font-family:Arial!important;font-size:13px!important;line-height:15px!important;text-align:center;border-top:1px solid #dadada;margin:0 30px\">\n\t<a href=\"https://infogram.com/f5bc18c4-6acb-42f0-ae0d-4b8836728a71\"\n\t\tstyle=\"color:#989898!important;text-decoration:none!important;\" target=\"_blank\">Copy: Line Chart</a><br><a\n\t\thref=\"https://infogram.com\" style=\"color:#989898!important;text-decoration:none!important;\" target=\"_blank\"\n\t\trel=\"nofollow\">Infogram</a></div>"
+  language: html
+style:
+  content: |-
+    section.samples {
+        margin-top: 20px;
+    }
+
+    section.samples .ms-Button, section.setup .ms-Button {
+        display: block;
+        margin-bottom: 5px;
+        margin-left: 20px;
+        min-width: 80px;
+    }
+  language: css
+libraries: |
+  https://appsforoffice.microsoft.com/lib/1/hosted/office.js
+  @types/office-js
+
+  office-ui-fabric-js@1.4.0/dist/css/fabric.min.css
+  office-ui-fabric-js@1.4.0/dist/css/fabric.components.min.css
+
+  core-js@2.4.1/client/core.min.js
+  @types/core-js
+
+  jquery@3.1.1
+  @types/jquery@3.3.1
